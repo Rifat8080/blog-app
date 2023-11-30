@@ -145,3 +145,78 @@ Migrating to AddRoleToUsers (20231004142914)
   [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT[0m
   [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(1508658759281986305)[0m
   [1m[36mActiveRecord::SchemaMigration Pluck (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/" for ::1 at 2023-11-30 12:06:29 +0600
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Exists? (1.5ms)[0m  [1m[34mSELECT 1 AS one FROM "users" LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/views/users/index.html.erb:5
+  Rendered users/index.html.erb within layouts/application (Duration: 5.5ms | Allocations: 2858)
+  Rendered shared/_navbar.html.erb (Duration: 0.5ms | Allocations: 516)
+  Rendered layout layouts/application.html.erb (Duration: 119.5ms | Allocations: 93605)
+Completed 200 OK in 128ms (Views: 116.6ms | ActiveRecord: 3.8ms | Allocations: 98150)
+
+
+Started GET "/" for ::1 at 2023-11-30 12:07:40 +0600
+Processing by UsersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Exists? (0.6ms)[0m  [1m[34mSELECT 1 AS one FROM "users" LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/views/users/index.html.erb:5
+  Rendered users/index.html.erb within layouts/application (Duration: 3.0ms | Allocations: 647)
+  Rendered shared/_navbar.html.erb (Duration: 0.4ms | Allocations: 226)
+  Rendered layout layouts/application.html.erb (Duration: 9.6ms | Allocations: 3008)
+Completed 200 OK in 13ms (Views: 9.8ms | ActiveRecord: 0.6ms | Allocations: 3620)
+
+
+Started GET "/" for ::1 at 2023-11-30 12:07:41 +0600
+Processing by UsersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "users" LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/views/users/index.html.erb:5
+  Rendered users/index.html.erb within layouts/application (Duration: 2.8ms | Allocations: 650)
+  Rendered shared/_navbar.html.erb (Duration: 0.4ms | Allocations: 226)
+  Rendered layout layouts/application.html.erb (Duration: 14.3ms | Allocations: 3012)
+Completed 200 OK in 17ms (Views: 14.4ms | ActiveRecord: 0.5ms | Allocations: 3583)
+
+
+Started GET "/users/sign_up" for ::1 at 2023-11-30 12:07:42 +0600
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 0.4ms | Allocations: 224)
+  Rendered devise/shared/_links.html.erb (Duration: 0.9ms | Allocations: 673)
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 12.8ms | Allocations: 6032)
+  Rendered shared/_navbar.html.erb (Duration: 0.2ms | Allocations: 267)
+  Rendered layout layouts/application.html.erb (Duration: 15.2ms | Allocations: 8518)
+Completed 200 OK in 34ms (Views: 16.8ms | ActiveRecord: 5.7ms | Allocations: 18477)
+
+
+Started POST "/users" for ::1 at 2023-11-30 12:07:50 +0600
+Processing by Devise::RegistrationsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"name"=>"Mahadi Hasasn", "role"=>"user", "photo"=>"", "bio"=>"", "email"=>"", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+[31mUnpermitted parameter: :password_confirmation. Context: { controller: Devise::RegistrationsController, action: create, request: #<ActionDispatch::Request:0x000000010bbf2280>, params: {"authenticity_token"=>"[FILTERED]", "user"=>{"name"=>"Mahadi Hasasn", "role"=>"user", "photo"=>"", "bio"=>"", "email"=>"", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up", "controller"=>"devise/registrations", "action"=>"create"} }[0m
+  Rendering layout layouts/application.html.erb
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 0.9ms | Allocations: 853)
+  Rendered devise/shared/_links.html.erb (Duration: 0.2ms | Allocations: 133)
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 3.8ms | Allocations: 4167)
+  Rendered shared/_navbar.html.erb (Duration: 0.3ms | Allocations: 246)
+  Rendered layout layouts/application.html.erb (Duration: 6.6ms | Allocations: 6541)
+Completed 422 Unprocessable Entity in 13ms (Views: 7.0ms | ActiveRecord: 0.0ms | Allocations: 9436)
+
+
+Started GET "/users/sign_up" for ::1 at 2023-11-30 12:07:56 +0600
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 0.0ms | Allocations: 14)
+  Rendered devise/shared/_links.html.erb (Duration: 0.2ms | Allocations: 133)
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 3.9ms | Allocations: 2256)
+  Rendered shared/_navbar.html.erb (Duration: 0.4ms | Allocations: 246)
+  Rendered layout layouts/application.html.erb (Duration: 7.8ms | Allocations: 4630)
+Completed 200 OK in 11ms (Views: 9.1ms | ActiveRecord: 0.0ms | Allocations: 5270)
+
+
