@@ -87,7 +87,7 @@ In order to run this project you need:
 Clone this repository to your desired folder:
 
 ```bash
-  git clone https://github.com/batoolfatima2135/Blog-app.git
+  git clone https://github.com/Rifat8080/Blog-app.git
 ```
 
 You need to setup database for these project

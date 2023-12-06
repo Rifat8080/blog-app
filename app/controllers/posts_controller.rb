@@ -1,32 +1,30 @@
 class PostsController < ApplicationController
+  def index
+    @user = User.find(params[:user_id])
+    @posts = @user.posts.includes(:comments)
+  end
+
   def show
-    @post = Post.find(params[:id])
-    @index = params[:index]
-    @user = current_user
+    @post = Post.includes(:comments).find(params[:id])
+    @user = User.find(params[:user_id])
+    @likes = @post.likes.all
   end
 
   def new
-    @user = current_user
     @post = Post.new
-    respond_to do |format|
-      format.html { render :new }
-    end
   end
 
   def create
-    @post = Post.new(post_params)
-    @post.user = current_user
-    if @post.save
-      redirect_to user_posts_path(id: current_user.id)
-    else
-      flash.now[:alert] = 'Cannot create a new post'
-      render :new
-    end
-  end
+    @user = current_user
+    @post = @user.posts.build(post_params)
 
-  def index
-    @user = User.find(params[:user_id])
-    @posts = Post.where(author_id: @user.id).paginate(page: params[:page], per_page: 10)
+    if @post.save
+      redirect_to user_post_url(@user, @post)
+
+    else
+      flash.now[:error] = 'Oops, something went wrong'
+      redirect_to new_post_url
+    end
   end
 
   private
