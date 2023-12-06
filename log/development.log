@@ -31,3 +31,20 @@ Processing by UsersController#index as HTML
 Completed 200 OK in 160ms (Views: 148.8ms | ActiveRecord: 0.0ms | Allocations: 94026)
 
 
+Started GET "/users" for 127.0.0.1 at 2023-12-06 12:20:44 +0600
+Processing by UsersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  Rendered users/index.html.erb within layouts/application (Duration: 0.3ms | Allocations: 7)
+  Rendered layout layouts/application.html.erb (Duration: 9.7ms | Allocations: 2357)
+Completed 200 OK in 13ms (Views: 11.0ms | ActiveRecord: 0.0ms | Allocations: 2632)
+
+
+Started GET "/posts" for 127.0.0.1 at 2023-12-06 12:20:50 +0600
+  
+ActionController::RoutingError (No route matches [GET] "/posts"):
+  
+Started GET "/users/1/1" for 127.0.0.1 at 2023-12-06 12:21:15 +0600
+  
+ActionController::RoutingError (No route matches [GET] "/users/1/1"):
+  
