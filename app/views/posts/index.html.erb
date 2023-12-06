@@ -1,35 +1,27 @@
-<%= render "shared/user", user: @user %>
-
-<% if @posts.any? %>
-  <% @posts.each_with_index do |post, index| %>
-    <a href="/users/<%= post.author_id %>/posts/<%= post.id %>?index=<%= index + 1 %>" class="text-decoration-none">
-      <%= render "shared/post", post: post, post_index: index + 1 %>
-      <div class="row justify-content-center align-items-center my-1">
-         <div class="col-lg-8 col-md-11 col-11 border p-2 ">
-            <% if post.comments.any? %>
-               <% post.comments.first(3).each do |comment| %>
-                  <p><%= comment.user.name %>: <%= comment.text %></p>
-               <% end %>
-            <% else %>
-               <p>No comments yet</p>
-            <% end %>
-         </div>
-      </div>
-    </a>  
-  <% end %>
-<% else %>
-  <p>No posts yet</p>
-<% end %>
-
+<section class="container">
+<article class="users-article">
+<div class="photo"><%= @user.photo %></div>
+<div class="details">
+ <h2><%= @user.name %></h2>
+  <p>Number of posts: <%= @user.posts_counter %></p>
 </div>
+</article>
 
-
- 
-<div class="row justify-content-center align-items-center my-1">
-
-  <div class=" col-2">
-    <%= will_paginate @posts %>
+<% @posts.each do |post| %>
+    <article class="post-comment">
+    <div class="posts-details">
+  <h2><%= link_to "Post ", user_post_url(@user.id, post.id) %> #<%= post.id %></h2>
+  <h3><%= post.text %></h3>
+  <p>Comments:<%= post.comments_counter %>,Likes:<%= post.likes_counter %></p>
   </div>
 
-</div>
-
+  <div class="comment-cont">
+  <% post.recent_comments.each do |comment| %>
+    <p><%= @user.name %>: <%= comment.text %> <%= comment.id %></p>
+    <% end %>
+  </div>
+  
+  </article>
+  <% end %>
+    <button type="button" class="pagination">Pagination</button>
+</section>

@@ -1,11 +1,11 @@
 class PostsController < ApplicationController
-  def show
-    @post = Post.find(params[:id])
-    @index = params[:index]
-  end
-
   def index
     @user = User.find(params[:user_id])
-    @posts = Post.where(author_id: @user.id).paginate(page: params[:page], per_page: 2)
+    @posts = @user.posts.includes(:comments)
+  end
+
+  def show
+    @post = Post.includes(:comments).find(params[:id])
+    @user = User.find(params[:user_id])
   end
 end
