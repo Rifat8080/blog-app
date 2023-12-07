@@ -380,3 +380,434 @@ Processing by UsersController#index as HTML
 Completed 200 OK in 10ms (Views: 8.3ms | ActiveRecord: 0.4ms | Allocations: 3241)
 
 
+Started GET "/" for 127.0.0.1 at 2023-12-07 11:43:21 +0600
+  [1m[36mActiveRecord::SchemaMigration Pluck (9.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/mdmahadihasanrifat/.rbenv/versions/3.2.2/lib/ruby/gems/3.2.0/gems/railties-7.0.8/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/mdmahadihasanrifat/.rbenv/versions/3.2.2/lib/ruby/gems/3.2.0/gems/railties-7.0.8/lib/rails/templates/rails/welcome/index.html.erb (Duration: 0.7ms | Allocations: 490)
+Completed 200 OK in 7ms (Views: 1.8ms | ActiveRecord: 0.0ms | Allocations: 4238)
+
+
+Started GET "/users" for 127.0.0.1 at 2023-12-07 11:43:25 +0600
+Processing by UsersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (3.1ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:2
+  Rendered users/index.html.erb within layouts/application (Duration: 5.4ms | Allocations: 980)
+  Rendered layout layouts/application.html.erb (Duration: 39.8ms | Allocations: 34952)
+Completed 200 OK in 51ms (Views: 39.3ms | ActiveRecord: 3.1ms | Allocations: 38503)
+
+
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/users" for 127.0.0.1 at 2023-12-07 11:43:48 +0600
+Processing by UsersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:2
+  Rendered users/index.html.erb within layouts/application (Duration: 2.6ms | Allocations: 613)
+  Rendered layout layouts/application.html.erb (Duration: 7.9ms | Allocations: 2935)
+Completed 200 OK in 9ms (Views: 8.1ms | ActiveRecord: 0.6ms | Allocations: 3210)
+
+
+Started GET "/users" for 127.0.0.1 at 2023-12-07 11:43:48 +0600
+Processing by UsersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:2
+  Rendered users/index.html.erb within layouts/application (Duration: 2.4ms | Allocations: 613)
+  Rendered layout layouts/application.html.erb (Duration: 7.4ms | Allocations: 2935)
+Completed 200 OK in 9ms (Views: 7.7ms | ActiveRecord: 0.5ms | Allocations: 3209)
+
+
+Started GET "/users" for 127.0.0.1 at 2023-12-07 11:43:49 +0600
+Processing by UsersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:2
+  Rendered users/index.html.erb within layouts/application (Duration: 1.3ms | Allocations: 607)
+  Rendered layout layouts/application.html.erb (Duration: 4.3ms | Allocations: 2925)
+Completed 200 OK in 5ms (Views: 4.4ms | ActiveRecord: 0.3ms | Allocations: 3193)
+
+
+Started GET "/users" for 127.0.0.1 at 2023-12-07 11:43:49 +0600
+Processing by UsersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:2
+  Rendered users/index.html.erb within layouts/application (Duration: 1.9ms | Allocations: 607)
+  Rendered layout layouts/application.html.erb (Duration: 5.5ms | Allocations: 2931)
+Completed 200 OK in 7ms (Views: 5.6ms | ActiveRecord: 0.5ms | Allocations: 3199)
+
+
+Started GET "/" for 127.0.0.1 at 2023-12-07 11:43:52 +0600
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/mdmahadihasanrifat/.rbenv/versions/3.2.2/lib/ruby/gems/3.2.0/gems/railties-7.0.8/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/mdmahadihasanrifat/.rbenv/versions/3.2.2/lib/ruby/gems/3.2.0/gems/railties-7.0.8/lib/rails/templates/rails/welcome/index.html.erb (Duration: 1.6ms | Allocations: 270)
+Completed 200 OK in 5ms (Views: 3.3ms | ActiveRecord: 0.0ms | Allocations: 832)
+
+
+Started GET "/users" for 127.0.0.1 at 2023-12-07 11:43:55 +0600
+Processing by UsersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:2
+  Rendered users/index.html.erb within layouts/application (Duration: 2.4ms | Allocations: 607)
+  Rendered layout layouts/application.html.erb (Duration: 6.8ms | Allocations: 2913)
+Completed 200 OK in 8ms (Views: 7.1ms | ActiveRecord: 0.5ms | Allocations: 3182)
+
+
+Started GET "/" for 127.0.0.1 at 2023-12-07 11:45:42 +0600
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/mdmahadihasanrifat/.rbenv/versions/3.2.2/lib/ruby/gems/3.2.0/gems/railties-7.0.8/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/mdmahadihasanrifat/.rbenv/versions/3.2.2/lib/ruby/gems/3.2.0/gems/railties-7.0.8/lib/rails/templates/rails/welcome/index.html.erb (Duration: 0.7ms | Allocations: 490)
+Completed 200 OK in 7ms (Views: 1.8ms | ActiveRecord: 0.0ms | Allocations: 4238)
+
+
+Started GET "/users" for 127.0.0.1 at 2023-12-07 11:45:50 +0600
+Processing by UsersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (1.9ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:2
+  Rendered users/index.html.erb within layouts/application (Duration: 4.3ms | Allocations: 980)
+  Rendered layout layouts/application.html.erb (Duration: 38.5ms | Allocations: 34871)
+Completed 200 OK in 48ms (Views: 39.1ms | ActiveRecord: 1.9ms | Allocations: 38422)
+
+
+Started GET "/users" for 127.0.0.1 at 2023-12-07 11:45:53 +0600
+Processing by UsersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:2
+  Rendered users/index.html.erb within layouts/application (Duration: 2.5ms | Allocations: 613)
+  Rendered layout layouts/application.html.erb (Duration: 7.4ms | Allocations: 2944)
+Completed 200 OK in 9ms (Views: 7.7ms | ActiveRecord: 0.6ms | Allocations: 3219)
+
+
+Started GET "/users" for 127.0.0.1 at 2023-12-07 11:45:54 +0600
+Processing by UsersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:2
+  Rendered users/index.html.erb within layouts/application (Duration: 4.6ms | Allocations: 613)
+  Rendered layout layouts/application.html.erb (Duration: 8.9ms | Allocations: 2947)
+Completed 200 OK in 11ms (Views: 9.1ms | ActiveRecord: 0.5ms | Allocations: 3221)
+
+
+Started GET "/users" for 127.0.0.1 at 2023-12-07 11:45:54 +0600
+Processing by UsersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:2
+  Rendered users/index.html.erb within layouts/application (Duration: 1.6ms | Allocations: 607)
+  Rendered layout layouts/application.html.erb (Duration: 4.9ms | Allocations: 2928)
+Completed 200 OK in 6ms (Views: 5.1ms | ActiveRecord: 0.3ms | Allocations: 3196)
+
+
+Started GET "/users" for 127.0.0.1 at 2023-12-07 11:45:54 +0600
+Processing by UsersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:2
+  Rendered users/index.html.erb within layouts/application (Duration: 1.9ms | Allocations: 607)
+  Rendered layout layouts/application.html.erb (Duration: 6.6ms | Allocations: 2934)
+Completed 200 OK in 8ms (Views: 6.8ms | ActiveRecord: 0.4ms | Allocations: 3202)
+
+
+Started GET "/user" for 127.0.0.1 at 2023-12-07 11:46:27 +0600
+  
+ActionController::RoutingError (No route matches [GET] "/user"):
+  
+Started GET "/user_posts" for 127.0.0.1 at 2023-12-07 11:46:52 +0600
+  
+ActionController::RoutingError (No route matches [GET] "/user_posts"):
+  
+Started GET "/users" for 127.0.0.1 at 2023-12-07 11:46:59 +0600
+Processing by UsersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:2
+  Rendered users/index.html.erb within layouts/application (Duration: 2.0ms | Allocations: 614)
+  Rendered layout layouts/application.html.erb (Duration: 6.9ms | Allocations: 2963)
+Completed 200 OK in 9ms (Views: 7.2ms | ActiveRecord: 0.4ms | Allocations: 3239)
+
+
+Started GET "/users/1" for 127.0.0.1 at 2023-12-07 11:47:14 +0600
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:7:in `show'
+Completed 404 Not Found in 40ms (ActiveRecord: 15.1ms | Allocations: 11686)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find User with 'id'=1):
+  
+app/controllers/users_controller.rb:7:in `show'
+Started GET "/" for ::1 at 2023-12-07 11:52:09 +0600
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/mdmahadihasanrifat/.rbenv/versions/3.2.2/lib/ruby/gems/3.2.0/gems/railties-7.0.8/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/mdmahadihasanrifat/.rbenv/versions/3.2.2/lib/ruby/gems/3.2.0/gems/railties-7.0.8/lib/rails/templates/rails/welcome/index.html.erb (Duration: 1.7ms | Allocations: 271)
+Completed 200 OK in 7ms (Views: 4.2ms | ActiveRecord: 0.0ms | Allocations: 833)
+
+
+Started GET "/users" for ::1 at 2023-12-07 11:52:16 +0600
+Processing by UsersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:2
+  Rendered users/index.html.erb within layouts/application (Duration: 4.7ms | Allocations: 607)
+  Rendered layout layouts/application.html.erb (Duration: 14.0ms | Allocations: 2774)
+Completed 200 OK in 16ms (Views: 14.0ms | ActiveRecord: 0.9ms | Allocations: 3044)
+
+
+Started GET "/" for 127.0.0.1 at 2023-12-07 11:56:47 +0600
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/mdmahadihasanrifat/.rbenv/versions/3.2.2/lib/ruby/gems/3.2.0/gems/railties-7.0.8/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/mdmahadihasanrifat/.rbenv/versions/3.2.2/lib/ruby/gems/3.2.0/gems/railties-7.0.8/lib/rails/templates/rails/welcome/index.html.erb (Duration: 0.7ms | Allocations: 490)
+Completed 200 OK in 7ms (Views: 2.1ms | ActiveRecord: 0.0ms | Allocations: 4238)
+
+
+Started GET "/users" for 127.0.0.1 at 2023-12-07 11:56:52 +0600
+Processing by UsersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (2.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:2
+  Rendered users/index.html.erb within layouts/application (Duration: 4.6ms | Allocations: 980)
+  Rendered layout layouts/application.html.erb (Duration: 42.1ms | Allocations: 34823)
+Completed 200 OK in 52ms (Views: 41.6ms | ActiveRecord: 2.3ms | Allocations: 38374)
+
+
+Started GET "/users" for 127.0.0.1 at 2023-12-07 11:58:36 +0600
+Processing by UsersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:2
+  Rendered users/index.html.erb within layouts/application (Duration: 4.3ms | Allocations: 781)
+  Rendered layout layouts/application.html.erb (Duration: 9.2ms | Allocations: 3378)
+Completed 200 OK in 13ms (Views: 10.9ms | ActiveRecord: 0.6ms | Allocations: 4204)
+
+
+Started GET "/users" for 127.0.0.1 at 2023-12-07 11:58:36 +0600
+Processing by UsersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:2
+  Rendered users/index.html.erb within layouts/application (Duration: 2.2ms | Allocations: 607)
+  Rendered layout layouts/application.html.erb (Duration: 7.1ms | Allocations: 2934)
+Completed 200 OK in 9ms (Views: 7.3ms | ActiveRecord: 0.4ms | Allocations: 3204)
+
+
+Started GET "/users" for 127.0.0.1 at 2023-12-07 11:58:36 +0600
+Processing by UsersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:2
+  Rendered users/index.html.erb within layouts/application (Duration: 1.9ms | Allocations: 607)
+  Rendered layout layouts/application.html.erb (Duration: 5.2ms | Allocations: 2937)
+Completed 200 OK in 6ms (Views: 5.2ms | ActiveRecord: 0.5ms | Allocations: 3205)
+
+
+Started GET "/users" for 127.0.0.1 at 2023-12-07 11:58:37 +0600
+Processing by UsersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:2
+  Rendered users/index.html.erb within layouts/application (Duration: 1.6ms | Allocations: 607)
+  Rendered layout layouts/application.html.erb (Duration: 3.5ms | Allocations: 2940)
+Completed 200 OK in 4ms (Views: 3.4ms | ActiveRecord: 0.4ms | Allocations: 3208)
+
+
+Started GET "/users" for 127.0.0.1 at 2023-12-07 11:58:37 +0600
+Processing by UsersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:2
+  Rendered users/index.html.erb within layouts/application (Duration: 2.2ms | Allocations: 607)
+  Rendered layout layouts/application.html.erb (Duration: 6.5ms | Allocations: 2937)
+Completed 200 OK in 8ms (Views: 6.7ms | ActiveRecord: 0.5ms | Allocations: 3205)
+
+
+Started GET "/posts" for 127.0.0.1 at 2023-12-07 11:58:41 +0600
+  
+ActionController::RoutingError (No route matches [GET] "/posts"):
+  
+Started GET "/post" for 127.0.0.1 at 2023-12-07 11:59:00 +0600
+  
+ActionController::RoutingError (No route matches [GET] "/post"):
+  
+Started GET "/users" for 127.0.0.1 at 2023-12-07 12:00:02 +0600
+Processing by UsersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:2
+  Rendered users/index.html.erb within layouts/application (Duration: 2.2ms | Allocations: 608)
+  Rendered layout layouts/application.html.erb (Duration: 8.1ms | Allocations: 2929)
+Completed 200 OK in 10ms (Views: 8.6ms | ActiveRecord: 0.5ms | Allocations: 3199)
+
+
+Started GET "/users" for 127.0.0.1 at 2023-12-07 12:00:24 +0600
+Processing by UsersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:2
+  Rendered users/index.html.erb within layouts/application (Duration: 1.6ms | Allocations: 613)
+  Rendered layout layouts/application.html.erb (Duration: 6.2ms | Allocations: 2908)
+Completed 200 OK in 7ms (Views: 6.4ms | ActiveRecord: 0.3ms | Allocations: 3180)
+
+
+Started GET "/" for ::1 at 2023-12-07 12:00:57 +0600
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/mdmahadihasanrifat/.rbenv/versions/3.2.2/lib/ruby/gems/3.2.0/gems/railties-7.0.8/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/mdmahadihasanrifat/.rbenv/versions/3.2.2/lib/ruby/gems/3.2.0/gems/railties-7.0.8/lib/rails/templates/rails/welcome/index.html.erb (Duration: 1.0ms | Allocations: 270)
+Completed 200 OK in 3ms (Views: 1.8ms | ActiveRecord: 0.0ms | Allocations: 832)
+
+
+Started GET "/users" for ::1 at 2023-12-07 12:01:04 +0600
+Processing by UsersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:2
+  Rendered users/index.html.erb within layouts/application (Duration: 2.3ms | Allocations: 607)
+  Rendered layout layouts/application.html.erb (Duration: 7.9ms | Allocations: 2756)
+Completed 200 OK in 10ms (Views: 8.3ms | ActiveRecord: 0.5ms | Allocations: 3025)
+
+
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (1.7ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (66.4ms)[0m  [1m[35mDROP DATABASE IF EXISTS "Blog_app_development"[0m
+  [1m[35m (27.8ms)[0m  [1m[35mDROP DATABASE IF EXISTS "Blog_app_test"[0m
+  [1m[35m (143.1ms)[0m  [1m[35mCREATE DATABASE "Blog_app_development" ENCODING = 'unicode'[0m
+  [1m[35m (53.3ms)[0m  [1m[35mCREATE DATABASE "Blog_app_test" ENCODING = 'unicode'[0m
+  [1m[35m (8.5ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (3.0ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT pg_try_advisory_lock(1695407851365855270)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateUsers (20230918110028)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (4.6ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "name" character varying, "photo" character varying, "bio" text, "posts_counter" integer, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20230918110028"]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateComments (20230918110756)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (3.0ms)[0m  [1m[35mCREATE TABLE "comments" ("id" bigserial primary key, "text" text, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20230918110756"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateLikes (20230918110945)
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (1.9ms)[0m  [1m[35mCREATE TABLE "likes" ("id" bigserial primary key, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20230918110945"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreatePosts (20230918111438)
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (3.3ms)[0m  [1m[35mCREATE TABLE "posts" ("id" bigserial primary key, "title" character varying, "text" text, "comments_counter" integer, "likes_counter" integer, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20230918111438"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT[0m
+Migrating to AddUserRefToComments (20230918112835)
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[35mALTER TABLE "comments" ADD "user_id" bigint NOT NULL[0m
+  [1m[35m (1.2ms)[0m  [1m[35mCREATE INDEX "index_comments_on_user_id" ON "comments" ("user_id")[0m
+  [1m[35m (2.7ms)[0m  [1m[35mALTER TABLE "comments" ADD CONSTRAINT "fk_rails_03de2dc08c"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20230918112835"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT[0m
+Migrating to AddPostRefToComments (20230918113021)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[35mALTER TABLE "comments" ADD "post_id" bigint NOT NULL[0m
+  [1m[35m (0.9ms)[0m  [1m[35mCREATE INDEX "index_comments_on_post_id" ON "comments" ("post_id")[0m
+  [1m[35m (1.6ms)[0m  [1m[35mALTER TABLE "comments" ADD CONSTRAINT "fk_rails_2fd19c0db7"
+FOREIGN KEY ("post_id")
+  REFERENCES "posts" ("id")
+[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20230918113021"]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT[0m
+Migrating to AddUserRefToLikes (20230918113151)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mALTER TABLE "likes" ADD "user_id" bigint NOT NULL[0m
+  [1m[35m (1.3ms)[0m  [1m[35mCREATE INDEX "index_likes_on_user_id" ON "likes" ("user_id")[0m
+  [1m[35m (1.8ms)[0m  [1m[35mALTER TABLE "likes" ADD CONSTRAINT "fk_rails_1e09b5dabf"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20230918113151"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT[0m
+Migrating to AddPostRefToLikes (20230918113315)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[35mALTER TABLE "likes" ADD "post_id" bigint NOT NULL[0m
+  [1m[35m (1.2ms)[0m  [1m[35mCREATE INDEX "index_likes_on_post_id" ON "likes" ("post_id")[0m
+  [1m[35m (1.3ms)[0m  [1m[35mALTER TABLE "likes" ADD CONSTRAINT "fk_rails_87a8aac469"
+FOREIGN KEY ("post_id")
+  REFERENCES "posts" ("id")
+[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20230918113315"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT[0m
+Migrating to AddUserRefToPosts (20230918113510)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[35mALTER TABLE "posts" ADD "user_id" bigint NOT NULL[0m
+  [1m[35m (1.2ms)[0m  [1m[35mCREATE INDEX "index_posts_on_user_id" ON "posts" ("user_id")[0m
+  [1m[35m (1.3ms)[0m  [1m[35mALTER TABLE "posts" ADD CONSTRAINT "fk_rails_5b5ddfd518"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20230918113510"]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT[0m
+Migrating to RenameUserIdToAuthorIdInPosts (20230918113732)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mALTER TABLE "posts" RENAME COLUMN "user_id" TO "author_id"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mALTER INDEX "index_posts_on_user_id" RENAME TO "index_posts_on_author_id"[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20230918113732"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.5ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.8ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2023-12-07 06:02:21.932840"], ["updated_at", "2023-12-07 06:02:21.932840"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(1695407851365855270)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/" for 127.0.0.1 at 2023-12-07 12:02:32 +0600
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/mdmahadihasanrifat/.rbenv/versions/3.2.2/lib/ruby/gems/3.2.0/gems/railties-7.0.8/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/mdmahadihasanrifat/.rbenv/versions/3.2.2/lib/ruby/gems/3.2.0/gems/railties-7.0.8/lib/rails/templates/rails/welcome/index.html.erb (Duration: 0.7ms | Allocations: 490)
+Completed 200 OK in 8ms (Views: 1.9ms | ActiveRecord: 0.0ms | Allocations: 4238)
+
+
+Started GET "/users" for 127.0.0.1 at 2023-12-07 12:02:39 +0600
+Processing by UsersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:2
+  Rendered users/index.html.erb within layouts/application (Duration: 3.5ms | Allocations: 960)
+  Rendered layout layouts/application.html.erb (Duration: 41.9ms | Allocations: 34897)
+Completed 200 OK in 53ms (Views: 43.6ms | ActiveRecord: 0.7ms | Allocations: 38448)
+
+
