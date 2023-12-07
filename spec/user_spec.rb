@@ -1,28 +1,41 @@
 require 'rails_helper'
 
-RSpec.describe User, type: :Model do
-  let(:user) { User.new(name: 'Cosmas', photo: 'www.newpics.com/jpg', bio: 'First son', posts_counter: 4) }
-  before { user.save }
+RSpec.describe User, type: :model do
+  before(:each) do
+    @user = User.new(name: 'Tom', photo: 'https://unsplash.com/photos/F_-0BxGuVvo', bio: 'Teacher from Mexico.')
+  end
 
-  it 'name should be present' do
-    user.name = nil
-    expect(user).to_not be_valid
+  describe '#validation' do
+    it 'is valid with valid attributes' do
+      expect(@user).to be_a(User)
+      expect(@user).to be_valid
+    end
+
+    it 'is invalid without name' do
+      bad_user = User.create(photo: 'https://unsplash.com/photos/F_-0BxGuVvo', bio: 'Teacher from Mexico.')
+      expect(bad_user).not_to be_valid
+      expect(bad_user.errors.include?(:name)).to eq(true)
+    end
+
+    it 'post_counter should be greater than or equal to 0' do
+      bad_user = User.create(name: 'Tom', photo: 'https://unsplash.com/photos/F_-0BxGuVvo',
+                             bio: 'Teacher from Mexico.', posts_counter: -1)
+      expect(bad_user).not_to be_valid
+      expect(bad_user.errors.include?(:posts_counter)).to eq(true)
+    end
   end
-  it 'posts_counter must be an integer' do
-    user.posts_counter = 'a'
-    expect(user).to_not be_valid
+
+  describe '#name' do
+    it 'should not be valid without name' do
+      bad_user = User.create(photo: 'https://unsplash.com/photos/F_-0BxGuVvo', bio: 'Teacher from Mexico.')
+      expect(bad_user).not_to be_valid
+      expect(bad_user.errors.include?(:name)).to eq(true)
+    end
   end
-  it 'posts_counter should be greated than or equal to zero' do
-    user.posts_counter = -1
-    expect(user).to_not be_valid
-  end
+
   describe '#recent_posts' do
-    it 'should have correct number of posts' do
-      Post.create(title: 'Post 1', text: 'Content 1', comments_counter: 0, likes_counter: 0, author_id: user.id)
-      Post.create(title: 'Post 2', text: 'Content 2', comments_counter: 0, likes_counter: 0, author_id: user.id)
-      Post.create(title: 'Post 3', text: 'Content 3', comments_counter: 0, likes_counter: 0, author_id: user.id)
-      my_posts = user.recent_posts
-      expect(my_posts.length).to eq(3)
+    it 'should return a list of recent posts' do
+      expect(@user.recent_posts).to eq(@user.posts.order(created_at: :desc).limit(3))
     end
   end
 end

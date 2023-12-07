@@ -1,41 +1,39 @@
 require 'rails_helper'
 
 RSpec.describe 'Posts', type: :request do
-  describe 'GET/index' do
-    before do
-      get user_posts_path(user_id: 1)
+  describe 'GET users/:user_id/posts' do
+    before :each do
+      get '/users/1/posts'
     end
 
-    it 'repond with http success' do
-      expect(response).to be_successful
+    it 'returns http success' do
+      expect(response).to have_http_status(:success)
     end
 
-    it 'renders the correct template' do
-      expect(response).to render_template('posts/index')
+    it 'renders the index template' do
+      expect(response).to render_template('index')
     end
 
-    it 'responds with the correct body' do
-      expect(response.body).to include('A list of all posts of a given user')
+    it 'renders the correct text' do
+      expect(response.body).to include('List of posts')
     end
   end
 
-  # show action
-
-  describe 'GET/show' do
-    before do
-      get user_post_url(user_id: 1, id: 1)
+  describe 'GET users/:user_id/posts/:id' do
+    before :each do
+      get '/users/1/posts/1'
     end
 
-    it 'repond with http success' do
-      expect(response.status).to eq(200)
+    it 'returns http success' do
+      expect(response).to have_http_status(:success)
     end
 
-    it 'renders the correct template' do
-      expect(response).to render_template('posts/show')
+    it 'renders the show template' do
+      expect(response).to render_template('show')
     end
 
-    it 'responds with the correct body' do
-      expect(response.body).to include('Details for a selected Post')
+    it 'renders the correct text' do
+      expect(response.body).to include('Individual post')
     end
   end
 end
