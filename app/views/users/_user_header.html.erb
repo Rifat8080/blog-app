@@ -1,0 +1,11 @@
+<ul class='w-full p-4 flex-col [&>*:nth-child(odd)]:bg-red-200 [&>*:nth-child(even)]:bg-teal-200'>
+  <% @users.each do |user| %>
+    <li class='rounded-xl m-6 '>
+      <a href="<%= user_path(user.id)%>" class="p-8 flex flex-row">
+      <img src=<%= user.photo %> class="h-full mr-4"/>
+      <span class="mx-4 text-2xl"><%= user.name %></span>
+      <span class="ml-[60%] mt-4 place-self-end">Number of Posts: <%= user.posts.length %></span>
+      </a>
+    </li>
+  <% end %>
+</ul>
