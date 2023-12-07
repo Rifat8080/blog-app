@@ -346,3 +346,37 @@ Processing by UsersController#index as HTML
 Completed 200 OK in 61ms (Views: 48.7ms | ActiveRecord: 2.6ms | Allocations: 43870)
 
 
+Started GET "/" for 127.0.0.1 at 2023-12-07 10:18:37 +0600
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/mdmahadihasanrifat/.rbenv/versions/3.2.2/lib/ruby/gems/3.2.0/gems/railties-7.0.8/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/mdmahadihasanrifat/.rbenv/versions/3.2.2/lib/ruby/gems/3.2.0/gems/railties-7.0.8/lib/rails/templates/rails/welcome/index.html.erb (Duration: 0.8ms | Allocations: 490)
+Completed 200 OK in 5ms (Views: 1.7ms | ActiveRecord: 0.0ms | Allocations: 4303)
+
+
+Started GET "/users" for 127.0.0.1 at 2023-12-07 10:18:45 +0600
+Processing by UsersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (2.5ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:2
+  Rendered users/index.html.erb within layouts/application (Duration: 4.0ms | Allocations: 980)
+  Rendered layout layouts/application.html.erb (Duration: 48.6ms | Allocations: 45439)
+Completed 200 OK in 58ms (Views: 47.8ms | ActiveRecord: 2.5ms | Allocations: 49072)
+
+
+Started GET "/users_index" for 127.0.0.1 at 2023-12-07 10:18:49 +0600
+  
+ActionController::RoutingError (No route matches [GET] "/users_index"):
+  
+Started GET "/users" for 127.0.0.1 at 2023-12-07 10:18:54 +0600
+Processing by UsersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:2
+  Rendered users/index.html.erb within layouts/application (Duration: 2.0ms | Allocations: 614)
+  Rendered layout layouts/application.html.erb (Duration: 8.1ms | Allocations: 2964)
+Completed 200 OK in 10ms (Views: 8.3ms | ActiveRecord: 0.4ms | Allocations: 3241)
+
+
