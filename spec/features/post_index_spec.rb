@@ -24,13 +24,16 @@ RSpec.describe 'posts#index', type: :feature do
     ]
     visit user_posts_url(user_id: @user_one.id)
   end
+
   describe '#Indexpage' do
     it 'can see the user profile picture.' do
       expect(page).to have_css("img[src='#{@user_one.photo}']")
     end
+
     it 'I can see the user username.' do
       expect(page).to have_content(@user_one.name.to_s)
     end
+
     it 'I can see the number of posts the user has written.' do
       expect(page).to have_content(@user_one.posts_counter.to_s)
     end
@@ -54,17 +57,40 @@ RSpec.describe 'posts#index', type: :feature do
         end
       end
     end
+
     it 'I can see how many comments a post has' do
       @posts.each do |post|
         expect(page).to have_content("Comments:#{post.comments_counter}")
       end
     end
+
     it 'I can see how many likes a post has' do
       @posts.each do |post|
         expect(page).to have_content("Likes:#{post.likes_counter}")
       end
     end
+
+    it 'displays pagination when there are more posts than fit on the view' do
+      additional_posts = [
+        Post.create(
+          author: @user_one,
+          title: 'Blog3',
+          text: 'This is my third post'
+        ),
+        Post.create(
+          author: @user_one,
+          title: 'Blog4',
+          text: 'This is my fourth post'
+        ),
+        # ... add more posts as needed ...
+      ]
+
+      visit user_posts_url(user_id: @user_one.id)
+
+      expect(page).to have_css('.pagination')
+    end
   end
+
   describe 'GET show/page' do
     it 'When I click on a post, I am redirected to that postshow page.' do
       visit user_posts_url(user_id: @user_one.id)
