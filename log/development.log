@@ -411,6 +411,7 @@ Processing by UsersController#index as HTML
 Completed 200 OK in 44ms (Views: 33.7ms | ActiveRecord: 4.4ms | Allocations: 45066)
 
 
+<<<<<<< HEAD
 Started GET "/" for 127.0.0.1 at 2023-12-12 18:12:38 +0600
   [1m[36mActiveRecord::SchemaMigration Pluck (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
 Processing by UsersController#index as HTML
@@ -443,3 +444,5 @@ Processing by UsersController#index as HTML
 Completed 200 OK in 204ms (Views: 190.2ms | ActiveRecord: 7.5ms | Allocations: 109256)
 
 
+=======
+>>>>>>> dev
