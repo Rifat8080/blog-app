@@ -1,9 +1,9 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-gem 'rubocop', '>= 1.0', '< 2.0'
-
 ruby '3.2.2'
+
+gem 'faker'
 
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem 'rails', '~> 7.0.8'
@@ -73,3 +73,7 @@ group :test do
   gem 'capybara'
   gem 'selenium-webdriver'
 end
+
+gem 'rubocop', '>= 1.0', '< 2.0'
+
+gem 'tailwindcss-rails', '~> 2.0'

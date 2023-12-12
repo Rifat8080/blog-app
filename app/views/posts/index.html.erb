@@ -1,1 +1,24 @@
-<h1> Here is a list of posts for a given user </h1>
+<%= render "users/user_header", users: @users%>
+<ul class="[&>*:nth-child(odd)]:bg-red-200 [&>*:nth-child(odd):hover]:border-red-400 [&>*:nth-child(even):hover]:border-teal-400 [&>*:nth-child(even)]:bg-teal-200">
+  <% @posts.each do |post| %>
+    <li class="hover:cursor-pointer rounded-xl m-8 p-8 border-4 border-transparent">
+      <a href="<%= user_post_path(post.author_id, post.id) %>">
+        <h2 class="font-semibold text-2xl"><%= post.title %></h2>
+        <p class="text-xl"><%= post.text %></p>
+        <span class="ml-[85%] mt-2">Comments: <%= post.comments.length %></span>
+        <span class="ml-2 mt-2">Likes: <%= post.likes.length %></span>
+      </a>
+    </li>
+    <ul class="bg-white -mt-8 rounded-xl ml-8 pl-8 py-8 w-[96%]">
+      <% unless post.comments.any? %>
+        <h2>No Comments</h2>
+      <% end %>
+      <% post.recent_comments.each do |comment| %>
+        <li class="hover:cursor-pointer">
+          <span class="font-semibold"><%= User.find(comment.author_id).name %>:</span>
+          <span class="ml-2"><%= comment.text %></span>
+        </li>
+      <% end %>
+    </ul>
+  <% end %>
+</ul>

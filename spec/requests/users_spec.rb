@@ -1,45 +1,39 @@
 require 'rails_helper'
 
 RSpec.describe 'Users', type: :request do
-  let(:valid_attributes) do
-    {
-      name: 'Mark'
-    }
-  end
-
-  describe 'GET /index' do
+  describe 'GET /' do
     before :each do
-      get users_path
-    end
-    it 'returns a successful response' do
-      expect(response).to be_successful
+      get '/'
     end
 
-    it 'renders correct template' do
-      expect(response).to render_template(:index)
+    it 'returns http success' do
+      expect(response).to have_http_status(:success)
     end
 
-    it 'includes correct placeholder text in the response body' do
-      expect(response.body).to include('Here is the list of all users')
+    it 'renders the index template' do
+      expect(response).to render_template('index')
+    end
+
+    it 'renders the correct text' do
+      expect(response.body).to include('List of users')
     end
   end
 
-  describe 'GET /show' do
+  describe 'GET /users/:id' do
     before :each do
-      @user = User.create! valid_attributes
-      get user_path(@user)
+      get '/users/1'
     end
 
-    it 'return a successful response' do
-      expect(response).to be_successful
+    it 'returns http success' do
+      expect(response).to have_http_status(:success)
     end
 
-    it 'renders correct template' do
-      expect(response).to render_template(:show)
+    it 'renders the show template' do
+      expect(response).to render_template('show')
     end
 
-    it 'includes correct placeholder text in the response body' do
-      expect(response.body).to include('Here is detail of a specific user')
+    it 'renders the correct text' do
+      expect(response.body).to include('Individual user')
     end
   end
 end

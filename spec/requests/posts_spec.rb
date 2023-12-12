@@ -1,47 +1,39 @@
 require 'rails_helper'
 
 RSpec.describe 'Posts', type: :request do
-  let(:valid_attributes) do
-    {
-      name: 'Mark'
-    }
-  end
-
-  describe 'GET /index' do
+  describe 'GET users/:user_id/posts' do
     before :each do
-      @user = User.create! valid_attributes
-      get user_posts_path(@user)
+      get '/users/1/posts'
     end
-    it 'returns a successful response' do
-      expect(response).to be_successful
+
+    it 'returns http success' do
+      expect(response).to have_http_status(:success)
     end
 
     it 'renders the index template' do
-      expect(response).to render_template(:index)
+      expect(response).to render_template('index')
     end
 
-    it 'includes correct placeholder text in the response body' do
-      expect(response.body).to include('Here is a list of posts for a given user')
+    it 'renders the correct text' do
+      expect(response.body).to include('List of posts')
     end
   end
 
-  describe 'GET /show' do
+  describe 'GET users/:user_id/posts/:id' do
     before :each do
-      @user = User.create! valid_attributes
-      @post = @user.posts.create(title: 'Test post')
-      get user_post_path(@user, @post)
+      get '/users/1/posts/1'
     end
 
-    it 'returns a successful response' do
-      expect(response).to be_successful
+    it 'returns http success' do
+      expect(response).to have_http_status(:success)
     end
 
-    it 'renders correct template' do
-      expect(response).to render_template(:show)
+    it 'renders the show template' do
+      expect(response).to render_template('show')
     end
 
-    it 'includes correct placeholder text in the response body' do
-      expect(response.body).to include('Here is post details')
+    it 'renders the correct text' do
+      expect(response.body).to include('Individual post')
     end
   end
 end
