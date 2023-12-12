@@ -1,53 +1,66 @@
 require 'rails_helper'
 
-RSpec.describe Post, type: :model do
-  before(:each) do
-    @author = User.create(name: 'Tom', photo: 'https://unsplash.com/photos/F_-0BxGuVvo', bio: 'Teacher from Mexico.')
-    @post = Post.new(author: @author, title: 'My post', text: 'This is my first post')
+RSpec.describe Post, type: :Model do
+  let(:user) { User.new(name: 'Cosmas', photo: 'www.newpics.com/jpg', bio: 'First son', posts_counter: 4) }
+  before { user.save }
+
+  let(:post) do
+    Post.new(title: 'greeting', text: 'Nice photos sofar', comments_counter: 2, likes_counter: 10, author_id: user.id)
   end
+  before { post.save }
 
-  describe '#validation' do
-    it 'is valid with valid attributes' do
-      expect(@post).to be_a(Post)
-      expect(@post).to be_valid
-    end
-
-    it 'is invalid without title' do
-      bad_post = Post.create(text: 'This is my first post')
-      expect(bad_post).not_to be_valid
-      expect(bad_post.errors.include?(:title)).to eq(true)
-    end
-
-    it 'title should be less than 250 characters' do
-      bad_post = Post.create(title: 'a' * 251, text: 'This is my first post')
-      expect(bad_post).not_to be_valid
-      expect(bad_post.errors.include?(:title)).to eq(true)
-    end
-
-    it 'comments_counter should be greater than or equal to 0' do
-      bad_post = Post.create(title: 'My post', text: 'This is my first post', comments_counter: -1)
-      expect(bad_post).not_to be_valid
-      expect(bad_post.errors.include?(:comments_counter)).to eq(true)
-    end
-
-    it 'likes_counter should be greater than or equal to 0' do
-      bad_post = Post.create(title: 'My post', text: 'This is my first post', likes_counter: -1)
-      expect(bad_post).not_to be_valid
-      expect(bad_post.errors.include?(:likes_counter)).to eq(true)
+  it 'title should be present' do
+    post.title = nil
+    expect(post).to_not be_valid
+  end
+  it 'title should not exceede 250 characters' do
+    post.title = 'b' * 260
+    expect(post).to_not be_valid
+  end
+  it 'comments_counter should be an integer' do
+    post.comments_counter = 'a'
+    expect(post).to_not be_valid
+  end
+  it 'comments_counter should be greater or equal to zero' do
+    post.comments_counter = -2
+    expect(post).to_not be_valid
+  end
+  it 'likes_counter should be an integer' do
+    post.likes_counter = 'k'
+    expect(post).to_not be_valid
+  end
+  it 'likes_counter should be greater or equal to zero' do
+    post.likes_counter = -4
+    expect(post).to_not be_valid
+  end
+  describe '#update_user_posts_counter' do
+    it 'should record the posts counter' do
+      counter = post.update_user_posts_counter
+      expect(counter).to eq(1)
     end
   end
-
   describe '#recent_comments' do
-    it 'should return a list of recent comments' do
-      expect(@post.recent_comments).to eq(@post.comments.order(created_at: :desc).limit(5))
+    it 'it should return 5 recent comments' do
+      Comment.create(text: 'hey budy', user_id: user.id, post_id: post.id)
+      Comment.create(text: 'hey budy2', user_id: user.id, post_id: post.id)
+      Comment.create(text: 'hey budy3', user_id: user.id, post_id: post.id)
+      Comment.create(text: 'hey budy4', user_id: user.id, post_id: post.id)
+      Comment.create(text: 'hey budy5', user_id: user.id, post_id: post.id)
+      Comment.create(text: 'hey budy6', user_id: user.id, post_id: post.id)
+      Comment.create(text: 'hey budy7', user_id: user.id, post_id: post.id)
+      my_comments = post.recent_comments
+      expect(my_comments.length).to eq(5)
     end
-  end
-
-  describe '#increment_posts_counter' do
-    it 'should increment posts_counter' do
-      expect(@post.author.posts_counter).to eq(0)
-      @post.save
-      expect(@post.author.posts_counter).to eq(1)
+    it 'it should return 5 recent comments' do
+      Comment.create(text: 'hey budy', user_id: user.id, post_id: post.id)
+      Comment.create(text: 'hey budy2', user_id: user.id, post_id: post.id)
+      Comment.create(text: 'hey budy3', user_id: user.id, post_id: post.id)
+      Comment.create(text: 'hey budy4', user_id: user.id, post_id: post.id)
+      Comment.create(text: 'hey budy5', user_id: user.id, post_id: post.id)
+      Comment.create(text: 'hey budy6', user_id: user.id, post_id: post.id)
+      Comment.create(text: 'hey budy7', user_id: user.id, post_id: post.id)
+      my_comments = post.recent_comments
+      expect(my_comments.first.text).to eq('hey budy7')
     end
   end
 end

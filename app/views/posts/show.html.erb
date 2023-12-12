@@ -1,23 +1,32 @@
-<ul class="[&>*:nth-child(odd)]:bg-red-200 [&>*:nth-child(odd):hover]:border-red-400 [&>*:nth-child(even):hover]:border-teal-400 [&>*:nth-child(even)]:bg-teal-200">
-  <% @posts.each do |post| %>
-    <li class="hover:cursor-pointer rounded-xl m-8 p-8 border-4 border-transparent">
-      <div>
-        <h2 class="font-semibold text-2xl"><%= post.title %> by <%= User.find(post.author_id).name %></h2>
-        <p class="text-xl"><%= post.text %></p>
-        <span class="ml-[85%] mt-2">Comments: <%= post.comments.length %></span>
-        <span class="ml-2 mt-2">Likes: <%= post.likes.length %></span>
-      </div>
-    </li>
-    <ul class="bg-white -mt-8 rounded-xl ml-8 pl-8 py-8 w-[96%]">
-      <% unless post.comments.any? %>
-        <h2>No Comments</h2>
-      <% end %>
-      <% post.comments.each do |comment| %>
-        <li class="hover:cursor-pointer">
-          <span class="font-semibold"><%= User.find(comment.author_id).name %>:</span>
-          <span class="ml-2"><%= comment.text %></span>
-        </li>
-      <% end %>
-    </ul>
-  <% end %>
-</ul>
+<section class="post-container">
+<article class="post-comments">
+<div class="post-head">
+  <div class="left">
+    <h4>Post  #<%= @post.id %><h4>
+    <p>by <%= @user.name %></p>
+ </div>
+ <div>
+<span>Comments: <%= @post.comments.size %> Likes:<%= @post.likes.size %></span>
+</div>
+</div>
+<div class="post-body">
+<h4><%= @post.title %></h4>
+<h4><%= @post.text %></h4>
+</div>
+
+</article>
+<div class="comments-container">
+<% @post.comments.each do |comment| %>
+    <p><%= comment.user.name %>: <%= comment.text %></P>
+    <% end %>
+    <p class="add-p"><%= link_to "Add Comment", new_user_post_comment_path(user_id: @post.author_id, post_id: @post.id) %>
+</div>
+
+<div class="like">
+<%= form_with url: user_post_likes_path(@post.author, @post), method: :post do |form| %>
+  <%= form.submit "Like", class:"like-btn"%>
+<% end %>
+</div>
+<%= flash[:success] %>
+<%= flash[:error] %>
+</section>

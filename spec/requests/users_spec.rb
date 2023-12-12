@@ -1,39 +1,40 @@
 require 'rails_helper'
 
 RSpec.describe 'Users', type: :request do
-  describe 'GET /' do
-    before :each do
-      get '/'
+  describe 'GET/index' do
+    before do
+      get users_url
     end
 
-    it 'returns http success' do
-      expect(response).to have_http_status(:success)
+    it 'repond with http success' do
+      expect(response.status).to eq(200)
     end
 
-    it 'renders the index template' do
-      expect(response).to render_template('index')
+    it 'renders the correct template' do
+      expect(response).to render_template('users/index')
     end
 
-    it 'renders the correct text' do
-      expect(response.body).to include('List of users')
+    it 'responds with the correct body' do
+      expect(response.body).to include('List of Users')
     end
   end
 
-  describe 'GET /users/:id' do
-    before :each do
-      get '/users/1'
+  # show action
+  describe 'GET/show' do
+    before do
+      get user_url(1)
     end
 
-    it 'returns http success' do
-      expect(response).to have_http_status(:success)
+    it 'repond with http success' do
+      expect(response.status).to eq(200)
     end
 
-    it 'renders the show template' do
-      expect(response).to render_template('show')
+    it 'renders the correct template' do
+      expect(response).to render_template('users/show')
     end
 
-    it 'renders the correct text' do
-      expect(response.body).to include('Individual user')
+    it 'responds with the correct body' do
+      expect(response.body).to include('Details of a Selected User')
     end
   end
 end

@@ -1,23 +1,23 @@
-<%= render partial: "user_header", users: @users%>
-
-<div class="ml-8">
-  <h2 class="text-2xl ml-8 mb-2 underline">Bio</h2>
-  <p class="text-xl ml-8"><%= @users[0].bio %></p>
+<section class="container">
+<article class="users-article">
+<div class="photo"><%=image_tag(@user.photo, :alt => "User profile photo.", :class => "display-photo") %></div>
+<div class="details">
+ <h2><%= @user.name %></h2>
+  <p><%= link_to "Number of posts:", user_posts_url(@user.id) %> <%= @user.posts_counter %></p>
 </div>
-<ul class="[&>*:nth-child(odd)]:bg-red-200 [&>*:nth-child(odd):hover]:border-red-400 [&>*:nth-child(even):hover]:border-teal-400 [&>*:nth-child(even)]:bg-teal-200">
-  <% @recent_posts.each do |post| %>
-    <li class="hover:cursor-pointer rounded-xl m-8 p-8 border-4 border-transparent">
-      <a href="<%= user_post_path(post.author_id, post.id) %>">
-      <h2 class="font-semibold text-2xl"><%= post.title %></h2>
-      <p class="text-xl"><%= post.text %></p>
-      <span class="ml-[85%] mt-2">Comments: <%= post.comments.length %></span>
-      <span class="ml-2 mt-2">Likes: <%= post.likes.length %></span>
-      </a>
-    </li>
-  <% end %>
-</ul>
-<% unless @users[0].posts.length <= 3 %>
-  <button class="w-max px-12 py-4 bg-teal-300 ml-[45%] hover:bg-teal-200 rounded-xl">
-    <a href="<%= user_posts_path(@users[0]) %>">See all posts</a>
-  </button>
-<% end %>
+</article>
+<div class="bio">
+  <p>Bio</p>
+  <p><%= @user.bio %></p>
+</div>
+    <% @user.recent_posts.each do |post| %>
+        <div class="post-details">
+        <h2><%= link_to "Post ##{post.id}", user_post_url(@user, post) %></h2>
+      <h3><%= post.text %></h3>
+      <p>Comments:<%= post.comments_counter %>,Likes:<%= post.likes_counter %></p>
+      </div>
+    <% end %>
+    <%= link_to user_posts_path(@user.id) do %>
+    <button type="button" class="see-posts">See all posts</button>
+    <% end %>
+</section>
