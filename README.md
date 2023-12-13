@@ -158,13 +158,24 @@ it will run the all the unit test of these project
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ## 👥 Author <a name="author"></a>
-bin
+
 👤 **Md Mahadi Hasan Rifat**
 
 - GitHub: [@Rifat8080](https://github.com/Rifat8080)
 - Twitter: [@mdmahadirifat98](https://twitter.com/mdmahadirifat98)
 - LinkedIn: [md-mahadi-hasan-rifat-8b7851265](https://www.linkedin.com/in/md-mahadi-hasan-rifat-8b7851265/)
 
+👤 Nelofar Zabi
+
+- GitHub: [@github](https://github.com/Nelofarzabi)
+- Twitter: [@twitter](https://twitter.com/NelofarZabi)
+- LinkedIn: [LinkedIn](https://www.linkedin.com/in/nelofar-zabi-1a1066213)
+
+👤 Edwin Gichuhi
+
+- GitHub: [@github](https://github.com/egichuhis)
+- Twitter: [@twitter](https://twitter.com/egichuhis)
+- LinkedIn: [LinkedIn](https://www.linkedin.com/in/edwin-gichuhi/)
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- FUTURE FEATURES -->
