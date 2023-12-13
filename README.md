@@ -175,7 +175,8 @@ it will run the all the unit test of these project
 
 - GitHub: [@github](https://github.com/egichuhis)
 - Twitter: [@twitter](https://twitter.com/egichuhis)
-- LinkedIn: [LinkedIn](https://www.linkedin.com/in/edwin-gichuhi/)
+- LinkedIn: [LinkedIn](https://www.linkedin.com/in/edwin-gichuhi/)``
+
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- FUTURE FEATURES -->

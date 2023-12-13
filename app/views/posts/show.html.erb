@@ -11,8 +11,14 @@
 </div>
 <div class="row mx-lg-4 mx-md-3 mx-lg-2 mx-1 justify-content-center align-items-center ">
   <div class="col-lg-8 col-md-11 col-11 border p-lg-2 p-1">
-     <%= render 'shared/like_form', post: @post, user: @user %>
+  <% if user_signed_in? %>
+   <%= render 'shared/like_form', post: @post, user: @user %>
     <%= render 'shared/comment_form', post: @post, user: @user %>
+<% else %>
+  <p>Please  <%= link_to "Sign in", new_user_session_path %> to leave a comment and like.</p>
+ 
+<% end %>
+    
    
     <div class="my-3">
        
@@ -21,6 +27,9 @@
 
       <% if comment.user %>
       <p><%= comment.user.name %>: <%= comment.text %></p>
+      <% if can?(:destroy, comment) %>
+        <%= link_to 'Delete', user_post_comment_path(@user, @post, comment), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %>
+      <% end %>
       <% end %>
     <% end %>
     <% else %>
