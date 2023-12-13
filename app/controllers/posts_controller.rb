@@ -1,12 +1,11 @@
 class PostsController < ApplicationController
   before_action :authenticate_user!, only: %i[new create]
-
+  load_and_authorize_resource
   def show
     @post = Post.find(params[:id])
     @index = params[:index]
     @user = current_user
   end
-
   def new
     @user = current_user
     @post = Post.new
@@ -14,7 +13,6 @@ class PostsController < ApplicationController
       format.html { render :new }
     end
   end
-
   def create
     @post = Post.new(post_params)
     @post.user = current_user
@@ -25,23 +23,23 @@ class PostsController < ApplicationController
       render :new
     end
   end
-
   def index
     @user = User.find(params[:user_id])
     @posts = Post.where(author_id: @user.id).includes(:comments, :user).paginate(page: params[:page], per_page: 10)
   end
-
   def destroy
     @post = Post.find(params[:id])
-
     authorize! :destroy, @post
-    @author = post.user
-    @author.decrement!(:post_counter)
+    @author = @post.user
+    @author.decrement!(:posts_counter)
     @post.destroy
+    if @post.destroy
+      redirect_to user_posts_path(current_user), notice: 'post was successfully deleted.'
+    else
+      redirect_to redirect_url, alert: 'Failed to delete the post.'
+    end
   end
-
   private
-
   def post_params
     params.require(:post).permit(:title, :text)
   end
