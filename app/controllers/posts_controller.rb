@@ -34,6 +34,7 @@ class PostsController < ApplicationController
 
   def destroy
     @post = Post.find(params[:id])
+
     authorize! :destroy, @post
     @author = @post.user
     @author.decrement!(:posts_counter)
