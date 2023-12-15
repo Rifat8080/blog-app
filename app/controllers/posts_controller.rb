@@ -1,49 +1,49 @@
 class PostsController < ApplicationController
-  before_action :authenticate_user!, only: %i[new create]
   load_and_authorize_resource
 
+  def index
+    @user = User.includes(posts: :comments).find(params[:user_id])
+    @posts = @user.posts.includes(:comments)
+    respond_to do |format|
+      format.html { render 'index' }
+      format.json { render json: @posts }
+    end
+  end
+
   def show
-    @post = Post.find(params[:id])
-    @index = params[:index]
-    @user = current_user
+    @post = Post.includes(:comments).find(params[:id])
+    @user = User.find(params[:user_id])
+    @likes = @post.likes.all
   end
 
   def new
-    @user = current_user
     @post = Post.new
-    respond_to do |format|
-      format.html { render :new }
-    end
   end
 
   def create
-    @post = Post.new(post_params)
-    @post.user = current_user
-    if @post.save
-      redirect_to user_posts_path(id: current_user.id)
-    else
-      flash.now[:alert] = 'Cannot create a new post'
-      render :new
-    end
-  end
+    @user = current_user
+    @post = @user.posts.build(post_params)
 
-  def index
-    @user = User.find(params[:user_id])
-    @posts = Post.where(author_id: @user.id).includes(:comments, :user).paginate(page: params[:page], per_page: 10)
+    if @post.save
+      @user.increment!(:posts_counter)
+      redirect_to user_post_url(@user, @post)
+
+    else
+      flash.now[:error] = 'Oops, something went wrong'
+      redirect_to new_user_post_url
+    end
   end
 
   def destroy
-    @post = Post.find(params[:id])
-
-    authorize! :destroy, @post
-    @author = @post.user
-    @author.decrement!(:posts_counter)
-    @post.destroy
-    if @post.destroy
-      redirect_to user_posts_path(current_user), notice: 'post was successfully deleted.'
+    post = Post.find(params[:id])
+    authorize! :destroy, post
+    if post.destroy
+      flash.now[:success] = 'Post was successfully deleted'
     else
-      redirect_to redirect_url, alert: 'Failed to delete the post.'
+      puts "Couldn't delete post"
+      flash.now[:error] = 'Oops. Could not delete the post'
     end
+    redirect_to user_posts_path
   end
 
   private

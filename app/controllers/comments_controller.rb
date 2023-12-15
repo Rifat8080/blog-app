@@ -1,32 +1,48 @@
 class CommentsController < ApplicationController
-  before_action :authenticate_user!
+  load_and_authorize_resource
+
+  def index
+    @post = Post.find(params[:post_id])
+    @comments = @post.comments
+    respond_to do |format|
+      format.html { render 'index' }
+      format.json { render json: @comments }
+    end
+  end
+
   def new
     @comment = Comment.new
   end
 
   def create
-    @user = current_user
-    @comment = @user.comments.build(comment_params)
-    @comment.post_id = params[:post_id]
+    @post = Post.find(params[:post_id])
+    @comment = @post.comments.build(comment_params)
+    @comment.user = current_user
 
     if @comment.save
-      flash[:success] = 'Comment created successfully!'
+      respond_to do |format|
+        format.html { redirect_to user_post_path(user_id: @post.author_id, post_id: @post.id, id: @post.id) }
+        format.json { render json: { message: 'Comment Added' }, status: :created }
+      end
+      @post.update(comments_counter: @post.comments.count)
     else
-      flash[:error] = 'Comment could not be saved.'
+      respond_to do |format|
+        format.html { redirect_to new_user_post_comment_path(user_id: @post.author_id, post_id: @post.id) }
+        format.json { render json: { message: 'Comment Not Add' }, status: :unprocessable_entity }
+      end
     end
-    redirect_to user_post_path(current_user, @comment.post_id)
   end
 
   def destroy
-    @comment = Comment.find(params[:id])
-    authorize! :destroy, @comment
-    redirect_url = request.referer || fallback_url
-
-    if @comment.destroy
-      redirect_to redirect_url, notice: 'Comment was successfully deleted.'
+    comment = Comment.find(params[:id])
+    authorize! :destroy, comment
+    if comment.destroy
+      flash.now[:success] = 'Comment was successfully deleted'
     else
-      redirect_to redirect_url, alert: 'Failed to delete the comment.'
+      puts "Couldn't delete post"
+      flash.now[:error] = 'Oops. Could not delete the Comment'
     end
+    redirect_to user_post_path
   end
 
   private
