@@ -6,6 +6,7 @@ class PostsController < ApplicationController
     @index = params[:index]
     @user = current_user
   end
+
   def new
     @user = current_user
     @post = Post.new
@@ -13,6 +14,7 @@ class PostsController < ApplicationController
       format.html { render :new }
     end
   end
+
   def create
     @post = Post.new(post_params)
     @post.user = current_user
@@ -23,10 +25,12 @@ class PostsController < ApplicationController
       render :new
     end
   end
+
   def index
     @user = User.find(params[:user_id])
     @posts = Post.where(author_id: @user.id).includes(:comments, :user).paginate(page: params[:page], per_page: 10)
   end
+
   def destroy
     @post = Post.find(params[:id])
     authorize! :destroy, @post
@@ -39,7 +43,9 @@ class PostsController < ApplicationController
       redirect_to redirect_url, alert: 'Failed to delete the post.'
     end
   end
+
   private
+
   def post_params
     params.require(:post).permit(:title, :text)
   end

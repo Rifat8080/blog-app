@@ -3,6 +3,7 @@ class CommentsController < ApplicationController
   def new
     @comment = Comment.new
   end
+
   def create
     @user = current_user
     @comment = @user.comments.build(comment_params)
@@ -14,6 +15,7 @@ class CommentsController < ApplicationController
     end
     redirect_to user_post_path(current_user, @comment.post_id)
   end
+
   def destroy
     @comment = Comment.find(params[:id])
     authorize! :destroy, @comment
@@ -24,7 +26,9 @@ class CommentsController < ApplicationController
       redirect_to redirect_url, alert: 'Failed to delete the comment.'
     end
   end
+
   private
+
   def comment_params
     params.require(:comment).permit(:text)
   end
