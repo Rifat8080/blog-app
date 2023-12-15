@@ -8,7 +8,6 @@ class CommentsController < ApplicationController
     @user = current_user
     @comment = @user.comments.build(comment_params)
     @comment.post_id = params[:post_id]
-
     if @comment.save
       flash[:success] = 'Comment created successfully!'
     else
@@ -20,7 +19,12 @@ class CommentsController < ApplicationController
   def destroy
     @comment = Comment.find(params[:id])
     authorize! :destroy, @comment
-    @comment.destroy
+    redirect_url = request.referer || fallback_url
+    if @comment.destroy
+      redirect_to redirect_url, notice: 'Comment was successfully deleted.'
+    else
+      redirect_to redirect_url, alert: 'Failed to delete the comment.'
+    end
   end
 
   private

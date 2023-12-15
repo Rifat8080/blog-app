@@ -43,14 +43,21 @@ Rails.application.configure do
 
   config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
 
+  config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
+
+  config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
-    address: 'sandbox.smtp.mailtrap.io',
-    port: 2525, 
-    user_name: '6dc1e8bc5523b5',
-    password: '5dc4fb649aacea', 
-    authentication: :login,
-    enable_starttls_auto: true
+    :user_name => 'ab2e92aeefe913',
+    :password => 'e6652be0e6b86d',
+    :address => 'sandbox.smtp.mailtrap.io',
+    :host => 'sandbox.smtp.mailtrap.io',
+    :port => '2525',
+    :authentication => :cram_md5
   }
+
+# Set the default sender email
+config.action_mailer.default_options = { from: 'mahadihasanrifat86@gmail.com' }
+
 
   # Print deprecation notices to the Rails logger.
   config.active_support.deprecation = :log
