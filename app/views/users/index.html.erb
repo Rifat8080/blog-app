@@ -1,15 +1,7 @@
- <% if user_signed_in? %>
-  <h4 class="text-center">Welcome <%= current_user.name %> want to add <%= link_to " a new post", new_user_post_path(user_id: @user.id) %>? </h4>
- 
- <% end %>
-<% if @users.any? %>
-  <h3  class="text-center pt-5 underline">Browse our Users</h3>
+<section class="container">
   <% @users.each do |user| %>
-    
-    <%= render "shared/user", user: user  %>
+    <%= render partial: 'user_info', locals: { user: user } %>
+  <% end %>
+</section>
 
-    <% end %>
-<% else %>
-    <h1 class="text-center m-auto">No users yet</h1>
-    <%= link_to "Create user", new_user_registration_path, class: "btn btn-primary" %>
-<% end %>
+

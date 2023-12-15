@@ -37,27 +37,9 @@ Rails.application.configure do
   config.active_storage.service = :local
 
   # Don't care if the mailer can't send.
-  config.action_mailer.raise_delivery_errors = true
+  config.action_mailer.raise_delivery_errors = false
 
   config.action_mailer.perform_caching = false
-
-  config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
-
-  config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
-
-  config.action_mailer.delivery_method = :smtp
-  config.action_mailer.smtp_settings = {
-    :user_name => 'ab2e92aeefe913',
-    :password => 'e6652be0e6b86d',
-    :address => 'sandbox.smtp.mailtrap.io',
-    :host => 'sandbox.smtp.mailtrap.io',
-    :port => '2525',
-    :authentication => :cram_md5
-  }
-
-# Set the default sender email
-config.action_mailer.default_options = { from: 'mahadihasanrifat86@gmail.com' }
-
 
   # Print deprecation notices to the Rails logger.
   config.active_support.deprecation = :log
@@ -74,8 +56,22 @@ config.action_mailer.default_options = { from: 'mahadihasanrifat86@gmail.com' }
   # Highlight code that triggered database queries in logs.
   config.active_record.verbose_query_logs = true
 
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+    :user_name => 'ab2e92aeefe913',
+    :password => 'e6652be0e6b86d',
+    :address => 'sandbox.smtp.mailtrap.io',
+    :host => 'sandbox.smtp.mailtrap.io',
+    :port => '2525',
+    :authentication => :cram_md5
+  }
+
+# Set the default sender email
+config.action_mailer.default_options = { from: 'mahadihasanrifat86@gmail.com' }
   # Suppress logger output for asset requests.
   config.assets.quiet = true
+
+  config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
 
   # Raises error for missing translations.
   # config.i18n.raise_on_missing_translations = true

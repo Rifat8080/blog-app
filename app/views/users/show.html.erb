@@ -1,19 +1,23 @@
-<%= render "shared/user", user: @user  %>
- <div class="row m-lg-4 m-md-3 m-lg-2 m-1 justify-content-center align-items-center ">
-  <div class="col-lg-8 col-md-11 col-11 border p-lg-2 p-1">
-    <h5>Bio</h5>
-    <p><%= @user.bio %></p>
-  </div>
-  <%if @user.posts.any? %>
-    <% @user.posts.each_with_index do |post, index| %>
-      <a href="<%= user_post_path(@user, post) %>" class="text-decoration-none" >
-      <%= render "shared/post", post: post, post_index: index + 1 %>
-      </a>
-    <% end %>
-    <a href="<%= user_posts_path(@user) %>" class="btn btn-primary col-2 mt-3" >See all posts</a>
-  <% else %>
-    <div class="col-lg-8 col-md-11 col-11 border p-lg-2 p-1 mt-3">
-      <h5> No posts yet </h5>
-    </div>
-  <% end %>
+<section class="container">
+<article class="users-article">
+<div class="photo"><%=image_tag(@user.photo, :alt => "User profile photo.", :class => "display-photo") %></div>
+<div class="details">
+ <h2><%= @user.name %></h2>
+  <p><%= link_to "Number of posts:", user_posts_url(@user.id) %> <%= @user.posts_counter %></p>
 </div>
+</article>
+<div class="bio">
+  <p>Bio</p>
+  <p><%= @user.bio %></p>
+</div>
+    <% @user.recent_posts.each do |post| %>
+        <div class="post-details">
+        <h2><%= link_to "Post ##{post.id}", user_post_url(@user, post) %></h2>
+      <h3><%= post.text %></h3>
+      <p>Comments:<%= post.comments_counter %>,Likes:<%= post.likes_counter %></p>
+      </div>
+    <% end %>
+    <%= link_to user_posts_path(@user.id) do %>
+    <button type="button" class="see-posts">See all posts</button>
+    <% end %>
+</section>
